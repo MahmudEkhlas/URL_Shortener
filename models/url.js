@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const urlSchema = new mongoose.Schema({
     shortID: {
         type : String,
@@ -10,7 +11,11 @@ const urlSchema = new mongoose.Schema({
         type: String,
         required : true
     },
-    visitHistory : [{ timestamp: { type : Number} }]
+    visitHistory : [{ timestamp: { type : Number} }],
+    createdBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"users"
+    }
 }, {timestamps: true});
 
 //creating a mongoose models
